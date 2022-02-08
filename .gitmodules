@@ -1,0 +1,3 @@
+[submodule "Invicta.Collections.Specialized"]
+	path = Invicta.Collections.Specialized
+	url = https://github.com/Andrew-Pollard/Invicta.Collections.Specialized.git
