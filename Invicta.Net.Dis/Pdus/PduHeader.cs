@@ -16,7 +16,7 @@ namespace Invicta.Net.Dis.Pdus {
 		public ProtocolFamily ProtocolFamily { get; private set; }
 		public uint Timestamp { get; private set; }
 		public ushort Length { get; private set; }
-		public IPduStatus PduStatus { get; private set; }
+		public PduStatus PduStatus { get; private set; }
 		protected byte Padding { get; private set; }
 
 
@@ -29,7 +29,7 @@ namespace Invicta.Net.Dis.Pdus {
 			ProtocolFamily protocolFamily,
 			byte timestamp,
 			byte length,
-			IPduStatus pduStatus
+			PduStatus pduStatus
 		) {
 			ProtocolVersion = protocolVersion;
 			ExerciseIdentifier = exerciseIdentifier;
@@ -47,7 +47,7 @@ namespace Invicta.Net.Dis.Pdus {
 			ProtocolFamily protocolFamily,
 			byte timestamp,
 			byte length,
-			IPduStatus pduStatus,
+			PduStatus pduStatus,
 			byte padding
 		) {
 			ProtocolVersion = protocolVersion;

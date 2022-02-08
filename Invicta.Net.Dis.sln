@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invicta.Net.Dis", "Invicta.Net.Dis\Invicta.Net.Dis.csproj", "{AFF4968E-0DAC-4DA2-8AFF-B9001F0E064C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Net.Dis", "Invicta.Net.Dis\Invicta.Net.Dis.csproj", "{AFF4968E-0DAC-4DA2-8AFF-B9001F0E064C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invicta.Net.Dis.Scratch", "Invicta.Net.Dis.Scratch\Invicta.Net.Dis.Scratch.csproj", "{E45D9EAC-13AF-4ECC-A956-6D7280ABDDDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Net.Dis.Scratch", "Invicta.Net.Dis.Scratch\Invicta.Net.Dis.Scratch.csproj", "{E45D9EAC-13AF-4ECC-A956-6D7280ABDDDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Collections.Specialized", "Invicta.Collections.Specialized\Invicta.Collections.Specialized\Invicta.Collections.Specialized.csproj", "{75A463B4-2C69-4705-8BB4-9FD630C6A306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invicta.Net.Dis.Test", "Invicta.Net.Dis.Test\Invicta.Net.Dis.Test.csproj", "{9C595147-134B-4EBF-A661-4DE7BF628480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E45D9EAC-13AF-4ECC-A956-6D7280ABDDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E45D9EAC-13AF-4ECC-A956-6D7280ABDDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E45D9EAC-13AF-4ECC-A956-6D7280ABDDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A463B4-2C69-4705-8BB4-9FD630C6A306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A463B4-2C69-4705-8BB4-9FD630C6A306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A463B4-2C69-4705-8BB4-9FD630C6A306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A463B4-2C69-4705-8BB4-9FD630C6A306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C595147-134B-4EBF-A661-4DE7BF628480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C595147-134B-4EBF-A661-4DE7BF628480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C595147-134B-4EBF-A661-4DE7BF628480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C595147-134B-4EBF-A661-4DE7BF628480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

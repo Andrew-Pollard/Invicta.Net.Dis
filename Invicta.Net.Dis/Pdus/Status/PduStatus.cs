@@ -1,69 +1,82 @@
-﻿using System;
+﻿using Invicta.Collections.Specialized;
 
 
 namespace Invicta.Net.Dis.Pdus.Status {
 
-	public class PduStatus : IPduStatus {
+	public class PduStatus : IDisSerializable {
 		public const int Size = 1;
 
 
 		public TransferredEntityIndicator TransferredEntityIndicator {
-			get => (TransferredEntityIndicator) (Status & 0b0000_0001);
-			private set => Status |= (byte) ((int) value & 0b0000_0001);
+			get => (TransferredEntityIndicator) Bits[0..1];
+			set => Bits[0..1] = (byte) value;
 		}
 
 		public LVCIndicator LVCIndicator {
-			get => (LVCIndicator) ((Status & 0b0000_0110) >> 1);
-			private set => Status |= (byte) (((int) value & 0b0000_0110) >> 1);
+			get => (LVCIndicator) Bits[1..3];
+			set => Bits[1..3] = (byte) value;
 		}
 
 		public CoupledExtensionIndicator CoupledExtensionIndicator {
-			get => (CoupledExtensionIndicator) ((Status & 0b0000_1000) >> 3);
-			private set => Status |= (byte) (((int) value & 0b0000_1000) >> 3);
+			get => (CoupledExtensionIndicator) Bits[3..4];
+			set => Bits[3..4] = (byte) value;
 		}
 
 		public FireTypeIndicator FireTypeIndicator {
-			get => (FireTypeIndicator) ((Status & 0b0001_0000) >> 4);
-			private set => Status |= (byte) (((int) value & 0b0001_0000) >> 4);
+			get => (FireTypeIndicator) Bits[4..5];
+			set => Bits[4..5] = (byte) value;
 		}
 
 		public DetonationTypeIndicator DetonationTypeIndicator {
-			get => (DetonationTypeIndicator) ((Status & 0b0011_0000) >> 4);
-			private set => Status |= (byte) (((int) value & 0b0011_0000) >> 4);
+			get => (DetonationTypeIndicator) Bits[4..6];
+			set => Bits[4..6] = (byte) value;
 		}
 
 		public RadioAttachedIndicator RadioAttachedIndicator {
-			get => (RadioAttachedIndicator) ((Status & 0b0011_0000) >> 4);
-			private set => Status |= (byte) (((int) value & 0b0011_0000) >> 4);
+			get => (RadioAttachedIndicator) Bits[4..6];
+			set => Bits[4..6] = (byte) value;
 		}
 
 		public IntercomAttachedIndicator IntercomAttachedIndicator {
-			get => (IntercomAttachedIndicator) ((Status & 0b0011_0000) >> 4);
-			private set => Status |= (byte) (((int) value & 0b0011_0000) >> 4);
+			get => (IntercomAttachedIndicator) Bits[4..6];
+			set => Bits[4..6] = (byte) value;
 		}
 
 		public IFFSimulationMode IFFSimulationMode {
-			get => (IFFSimulationMode) ((Status & 0b0001_0000) >> 4);
-			private set => Status |= (byte) (((int) value & 0b0001_0000) >> 4);
+			get => (IFFSimulationMode) Bits[4..5];
+			set => Bits[4..5] = (byte) value;
 		}
 
 		public ActiveInterrogationIndicator ActiveInterrogationIndicator {
-			get => (ActiveInterrogationIndicator) ((Status & 0b0010_0000) >> 5);
-			private set => Status |= (byte) (((int) value & 0b0010_0000) >> 5);
+			get => (ActiveInterrogationIndicator) Bits[5..6];
+			set => Bits[5..6] = (byte) value;
 		}
 
 
-		protected byte Status { get; private set; }
+		public byte Status {
+			get => Bits.Raw;
+			set => Bits.Raw = value;
+		}
 
 
-		public PduStatus() { }
+		private Bitfield8 Bits;
+
+
+		public PduStatus() {
+			Bits = new Bitfield8();
+		}
+
+
+		public PduStatus(byte @byte) {
+			Bits = new Bitfield8(@byte);
+		}
 
 
 		public PduStatus(
 			TransferredEntityIndicator transferredEntityIndicator,
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator
-		) {
+		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
@@ -73,7 +86,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator,
 			FireTypeIndicator fireTypeIndicator
-		) {
+		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
 			FireTypeIndicator = fireTypeIndicator;
@@ -83,7 +96,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator,
 			DetonationTypeIndicator detonationTypeIndicator
-		) {
+		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
 			DetonationTypeIndicator = detonationTypeIndicator;
@@ -92,7 +105,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		public PduStatus(
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator
-		) {
+		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
 		}
@@ -102,7 +115,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator,
 			RadioAttachedIndicator radioAttachedIndicator
-		) {
+		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
@@ -115,7 +128,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			CoupledExtensionIndicator coupledExtensionIndicator,
 			IFFSimulationMode iffSimulationMode,
 			ActiveInterrogationIndicator activeInterrogationIndicator
-		) {
+		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
@@ -128,20 +141,15 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			LVCIndicator lvcIndicator,
 			CoupledExtensionIndicator coupledExtensionIndicator,
 			IntercomAttachedIndicator intercomAttachedIndicator
-		) {
+		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
 			IntercomAttachedIndicator = intercomAttachedIndicator;
 		}
 
-		public PduStatus(LVCIndicator lvcIndicator) {
+		public PduStatus(LVCIndicator lvcIndicator) : this() {
 			LVCIndicator = lvcIndicator;
-		}
-
-
-		protected PduStatus(byte @byte) {
-			Status = @byte;
 		}
 
 
@@ -149,7 +157,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			if (bytes.Length != Size)
 				throw new ArgumentException(nameof(bytes));
 
-			bytes[0] = Status;
+			bytes[0] = Bits.Raw;
 		}
 
 
@@ -157,7 +165,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			if (bytes.Length != Size)
 				throw new ArgumentException(nameof(bytes));
 
-			Status = bytes[0];
+			Bits.Raw = bytes[0];
 		}
 	}
 }

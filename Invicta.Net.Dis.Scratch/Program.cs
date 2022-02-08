@@ -2,7 +2,6 @@
 using Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance;
 using Invicta.Net.Dis.Pdus.EntityInformationInteraction.Capabilities;
 
-using System;
 
 namespace Invicta.Net.Dis.Scratch {
 
