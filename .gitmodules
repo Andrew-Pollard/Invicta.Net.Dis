@@ -1,3 +1,6 @@
 [submodule "Invicta.Collections.Specialized"]
 	path = Invicta.Collections.Specialized
 	url = https://github.com/Andrew-Pollard/Invicta.Collections.Specialized.git
+[submodule "Invicta.Net.SisoRef010"]
+	path = Invicta.Net.SisoRef010
+	url = https://github.com/Andrew-Pollard/Invicta.Net.SisoRef010.git
