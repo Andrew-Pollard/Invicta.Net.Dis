@@ -1,7 +1,4 @@
 ﻿using Invicta.Collections.Specialized;
-using Invicta.Net.Dis.Pdus.EntityInformationInteraction;
-using Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance;
-using Invicta.Net.Dis.Pdus.EntityInformationInteraction.Capabilities;
 
 
 namespace Invicta.Net.Dis.Scratch {

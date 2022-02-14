@@ -1,6 +1,6 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -8,8 +8,8 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class MunitionAppearance : IEntityAppearance {
-		public Damage Damage {
-			get => (Damage) Bits[3..5];
+		public AppearanceDamage Damage {
+			get => (AppearanceDamage) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 379
 
@@ -23,8 +23,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[6] = value;
 		}
 
-		public TrailingEffects VaporTrailSize {
-			get => (TrailingEffects) Bits[7..9];
+		public AppearanceTrailingEffects VaporTrailSize {
+			get => (AppearanceTrailingEffects) Bits[7..9];
 			set => Bits[7..9] = (uint) value;
 		} // 381
 
@@ -48,8 +48,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 

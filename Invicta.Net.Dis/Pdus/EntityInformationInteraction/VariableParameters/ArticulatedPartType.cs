@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Invicta.Net.SisoRef010;
 
 
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.VariableParameters {
@@ -11,7 +7,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.VariableParameters {
 		public const int Size = 4;
 
 
-		public ArticulatedPartTypeMetric Metric { get; }
+		public ArticulatedPartsTypeMetric Metric { get; }
 
 
 

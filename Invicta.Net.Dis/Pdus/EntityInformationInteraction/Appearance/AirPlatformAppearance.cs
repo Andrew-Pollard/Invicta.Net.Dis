@@ -1,4 +1,5 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
 using System.Linq;
 using System.Reflection;
@@ -8,8 +9,8 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class AirPlatformAppearance : IEntityAppearance {
-		public PaintScheme PaintScheme {
-			get => (PaintScheme) Bits[0..1];
+		public AppearancePaintScheme PaintScheme {
+			get => (AppearancePaintScheme) Bits[0..1];
 			set => Bits[0..1] = (uint) value;
 		} // 378
 
@@ -18,13 +19,13 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[1] = value;
 		}
 
-		public NvgMode NvgMode {
-			get => (NvgMode) Bits[2..3];
+		public AppearanceNVGMode NvgMode {
+			get => (AppearanceNVGMode) Bits[2..3];
 			set => Bits[2..3] = (uint) value;
 		} // 400
 
-		public Damage Damage {
-			get => (Damage) Bits[3..5];
+		public AppearanceDamage Damage {
+			get => (AppearanceDamage) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 379
 
@@ -38,13 +39,13 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[6] = value;
 		}
 
-		public TrailingEffects TrailingEffects {
-			get => (TrailingEffects) Bits[7..9];
+		public AppearanceTrailingEffects TrailingEffects {
+			get => (AppearanceTrailingEffects) Bits[7..9];
 			set => Bits[7..9] = (uint) value;
 		} // 381
 
-		public Canopy CanopyOrTroopDoor {
-			get => (Canopy) Bits[9..12];
+		public AppearanceCanopy CanopyOrTroopDoor {
+			get => (AppearanceCanopy) Bits[9..12];
 			set => Bits[9..12] = (uint) value;
 		} // 387
 
@@ -83,8 +84,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[18] = value;
 		}
 
-		public AntiCollisionDayOrNight AntiCollisionDayOrNight {
-			get => (AntiCollisionDayOrNight) Bits[19..20];
+		public AppearanceAntiCollisionDayOrNight AntiCollisionDayOrNight {
+			get => (AppearanceAntiCollisionDayOrNight) Bits[19..20];
 			set => Bits[19..20] = (uint) value;
 		} // 397
 
@@ -103,8 +104,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 
@@ -123,8 +124,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[26] = value;
 		}
 
-		public NavigationOrPositionBrightness NavigationOrPositionBrightness {
-			get => (NavigationOrPositionBrightness) Bits[27..28];
+		public AppearanceNavigationOrPositionBrightness NavigationOrPositionBrightness {
+			get => (AppearanceNavigationOrPositionBrightness) Bits[27..28];
 			set => Bits[27..28] = (uint) value;
 		} // 398
 

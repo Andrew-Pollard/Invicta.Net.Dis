@@ -1,4 +1,5 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
 
 namespace Invicta.Net.Dis.Pdus.Status {
@@ -7,48 +8,48 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		public const int Size = 1;
 
 
-		public TransferredEntityIndicator TransferredEntityIndicator {
-			get => (TransferredEntityIndicator) Bits[0..1];
+		public DISPDUStatusTransferredEntityIndicatorTEI TransferredEntityIndicator {
+			get => (DISPDUStatusTransferredEntityIndicatorTEI) Bits[0..1];
 			set => Bits[0..1] = (byte) value;
 		}
 
-		public LVCIndicator LVCIndicator {
-			get => (LVCIndicator) Bits[1..3];
+		public DISPDUStatusLVCIndicatorLVC LVCIndicator {
+			get => (DISPDUStatusLVCIndicatorLVC) Bits[1..3];
 			set => Bits[1..3] = (byte) value;
 		}
 
-		public CoupledExtensionIndicator CoupledExtensionIndicator {
-			get => (CoupledExtensionIndicator) Bits[3..4];
+		public DISPDUStatusCoupledExtensionIndicatorCEI CoupledExtensionIndicator {
+			get => (DISPDUStatusCoupledExtensionIndicatorCEI) Bits[3..4];
 			set => Bits[3..4] = (byte) value;
 		}
 
-		public FireTypeIndicator FireTypeIndicator {
-			get => (FireTypeIndicator) Bits[4..5];
+		public DISPDUStatusFireTypeIndicatorFTI FireTypeIndicator {
+			get => (DISPDUStatusFireTypeIndicatorFTI) Bits[4..5];
 			set => Bits[4..5] = (byte) value;
 		}
 
-		public DetonationTypeIndicator DetonationTypeIndicator {
-			get => (DetonationTypeIndicator) Bits[4..6];
+		public DISPDUStatusDetonationTypeIndicatorDTI DetonationTypeIndicator {
+			get => (DISPDUStatusDetonationTypeIndicatorDTI) Bits[4..6];
 			set => Bits[4..6] = (byte) value;
 		}
 
-		public RadioAttachedIndicator RadioAttachedIndicator {
-			get => (RadioAttachedIndicator) Bits[4..6];
+		public DISPDUStatusRadioAttachedIndicatorRAI RadioAttachedIndicator {
+			get => (DISPDUStatusRadioAttachedIndicatorRAI) Bits[4..6];
 			set => Bits[4..6] = (byte) value;
 		}
 
-		public IntercomAttachedIndicator IntercomAttachedIndicator {
-			get => (IntercomAttachedIndicator) Bits[4..6];
+		public DISPDUStatusIntercomAttachedIndicatorIAI IntercomAttachedIndicator {
+			get => (DISPDUStatusIntercomAttachedIndicatorIAI) Bits[4..6];
 			set => Bits[4..6] = (byte) value;
 		}
 
-		public IFFSimulationMode IFFSimulationMode {
-			get => (IFFSimulationMode) Bits[4..5];
+		public DISPDUStatusIFFSimulationModeISM IFFSimulationMode {
+			get => (DISPDUStatusIFFSimulationModeISM) Bits[4..5];
 			set => Bits[4..5] = (byte) value;
 		}
 
-		public ActiveInterrogationIndicator ActiveInterrogationIndicator {
-			get => (ActiveInterrogationIndicator) Bits[5..6];
+		public DISPDUStatusActiveInterrogationIndicatorAII ActiveInterrogationIndicator {
+			get => (DISPDUStatusActiveInterrogationIndicatorAII) Bits[5..6];
 			set => Bits[5..6] = (byte) value;
 		}
 
@@ -73,9 +74,9 @@ namespace Invicta.Net.Dis.Pdus.Status {
 
 
 		public PduStatus(
-			TransferredEntityIndicator transferredEntityIndicator,
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator
+			DISPDUStatusTransferredEntityIndicatorTEI transferredEntityIndicator,
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator
 		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
@@ -83,9 +84,9 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		}
 
 		public PduStatus(
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator,
-			FireTypeIndicator fireTypeIndicator
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator,
+			DISPDUStatusFireTypeIndicatorFTI fireTypeIndicator
 		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
@@ -93,9 +94,9 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		}
 
 		public PduStatus(
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator,
-			DetonationTypeIndicator detonationTypeIndicator
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator,
+			DISPDUStatusDetonationTypeIndicatorDTI detonationTypeIndicator
 		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
@@ -103,18 +104,18 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		}
 
 		public PduStatus(
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator
 		) : this() {
 			LVCIndicator = lvcIndicator;
 			CoupledExtensionIndicator = coupledExtensionIndicator;
 		}
 
 		public PduStatus(
-			TransferredEntityIndicator transferredEntityIndicator,
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator,
-			RadioAttachedIndicator radioAttachedIndicator
+			DISPDUStatusTransferredEntityIndicatorTEI transferredEntityIndicator,
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator,
+			DISPDUStatusRadioAttachedIndicatorRAI radioAttachedIndicator
 		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
@@ -123,11 +124,11 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		}
 
 		public PduStatus(
-			TransferredEntityIndicator transferredEntityIndicator,
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator,
-			IFFSimulationMode iffSimulationMode,
-			ActiveInterrogationIndicator activeInterrogationIndicator
+			DISPDUStatusTransferredEntityIndicatorTEI transferredEntityIndicator,
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator,
+			DISPDUStatusIFFSimulationModeISM iffSimulationMode,
+			DISPDUStatusActiveInterrogationIndicatorAII activeInterrogationIndicator
 		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
@@ -137,10 +138,10 @@ namespace Invicta.Net.Dis.Pdus.Status {
 		}
 
 		public PduStatus(
-			TransferredEntityIndicator transferredEntityIndicator,
-			LVCIndicator lvcIndicator,
-			CoupledExtensionIndicator coupledExtensionIndicator,
-			IntercomAttachedIndicator intercomAttachedIndicator
+			DISPDUStatusTransferredEntityIndicatorTEI transferredEntityIndicator,
+			DISPDUStatusLVCIndicatorLVC lvcIndicator,
+			DISPDUStatusCoupledExtensionIndicatorCEI coupledExtensionIndicator,
+			DISPDUStatusIntercomAttachedIndicatorIAI intercomAttachedIndicator
 		) : this() {
 			TransferredEntityIndicator = transferredEntityIndicator;
 			LVCIndicator = lvcIndicator;
@@ -148,7 +149,7 @@ namespace Invicta.Net.Dis.Pdus.Status {
 			IntercomAttachedIndicator = intercomAttachedIndicator;
 		}
 
-		public PduStatus(LVCIndicator lvcIndicator) : this() {
+		public PduStatus(DISPDUStatusLVCIndicatorLVC lvcIndicator) : this() {
 			LVCIndicator = lvcIndicator;
 		}
 

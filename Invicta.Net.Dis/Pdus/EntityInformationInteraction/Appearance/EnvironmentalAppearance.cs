@@ -1,6 +1,6 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -8,8 +8,8 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class EnvironmentalAppearance : IEntityAppearance {
-		public EnvironmentalDensity Density {
-			get => (EnvironmentalDensity) Bits[16..19];
+		public AppearanceEnvironmentalDensity Density {
+			get => (AppearanceEnvironmentalDensity) Bits[16..19];
 			set => Bits[16..19] = (uint) value;
 		} // 395
 
@@ -18,8 +18,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[21] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 

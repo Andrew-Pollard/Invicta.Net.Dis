@@ -1,14 +1,14 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
 
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 	public class ExpendableAppearance : IEntityAppearance {
-		public Damage Damage {
-			get => (Damage) Bits[3..5];
+		public AppearanceDamage Damage {
+			get => (AppearanceDamage) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 379
 
@@ -37,8 +37,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[16] = value;
 		}
 
-		public FlareOrSmoke FlareOrSmokeStatus {
-			get => (FlareOrSmoke) Bits[17..19];
+		public FlareOrSmokeStatus FlareOrSmokeStatus {
+			get => (FlareOrSmokeStatus) Bits[17..19];
 			set => Bits[17..19] = (uint) value;
 		} // 403
 
@@ -52,13 +52,13 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 
-		public SpotChaff SpotChaffStatus {
-			get => (SpotChaff) Bits[24..26];
+		public SpotChaffStatus SpotChaffStatus {
+			get => (SpotChaffStatus) Bits[24..26];
 			set => Bits[24..26] = (uint) value;
 		} // 404
 

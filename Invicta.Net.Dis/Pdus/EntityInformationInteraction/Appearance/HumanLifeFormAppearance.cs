@@ -1,6 +1,6 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -8,18 +8,18 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class HumanLifeFormAppearance : IEntityAppearance {
-		public PaintScheme PaintScheme {
-			get => (PaintScheme) Bits[0..1];
+		public AppearancePaintScheme PaintScheme {
+			get => (AppearancePaintScheme) Bits[0..1];
 			set => Bits[0..1] = (uint) value;
 		} // 378
 
-		public LifeFormHealth Health {
-			get => (LifeFormHealth) Bits[3..5];
+		public AppearanceLifeformHealth Health {
+			get => (AppearanceLifeformHealth) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 390
 
-		public LifeFormCompliance ComplianceStatus {
-			get => (LifeFormCompliance) Bits[5..7];
+		public AppearanceLifeFormComplianceStatus ComplianceStatus {
+			get => (AppearanceLifeFormComplianceStatus) Bits[5..7];
 			set => Bits[5..7] = (uint) value;
 		} // 391
 
@@ -48,8 +48,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[15] = value;
 		}
 
-		public LifeFormPosture LifeFormPosture {
-			get => (LifeFormPosture) Bits[16..19];
+		public AppearanceLifeFormPosture LifeFormPosture {
+			get => (AppearanceLifeFormPosture) Bits[16..19];
 			set => Bits[16..19] = (uint) value;
 		} // 392
 
@@ -63,33 +63,33 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 
-		public LifeFormWeaponOrImplement WeaponOrImplement1 {
-			get => (LifeFormWeaponOrImplement) Bits[24..26];
+		public AppearanceLifeFormWeaponOrImplement WeaponOrImplement1 {
+			get => (AppearanceLifeFormWeaponOrImplement) Bits[24..26];
 			set => Bits[24..26] = (uint) value;
 		} // 393
 
-		public LifeFormWeaponOrImplement WeaponOrImplement2 {
-			get => (LifeFormWeaponOrImplement) Bits[26..28];
+		public AppearanceLifeFormWeaponOrImplement WeaponOrImplement2 {
+			get => (AppearanceLifeFormWeaponOrImplement) Bits[26..28];
 			set => Bits[26..28] = (uint) value;
 		} // 393
 
-		public CamouflageType CamouflageType {
-			get => (CamouflageType) Bits[28..30];
+		public AppearanceCamouflageType CamouflageType {
+			get => (AppearanceCamouflageType) Bits[28..30];
 			set => Bits[28..30] = (uint) value;
 		} // 384
 
-		public ConcealedPosition ConcealedStationary {
-			get => (ConcealedPosition) Bits[30..31];
+		public AppearanceConcealedPosition ConcealedStationary {
+			get => (AppearanceConcealedPosition) Bits[30..31];
 			set => Bits[30..31] = (uint) value;
 		} // 385
 
-		public ConcealedMovement ConcealedMovement {
-			get => (ConcealedMovement) Bits[31..32];
+		public AppearanceConcealedMovement ConcealedMovement {
+			get => (AppearanceConcealedMovement) Bits[31..32];
 			set => Bits[31..32] = (uint) value;
 		} // 394
 

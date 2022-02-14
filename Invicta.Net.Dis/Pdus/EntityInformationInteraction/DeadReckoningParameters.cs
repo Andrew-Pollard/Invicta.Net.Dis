@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
+﻿namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 
 	public class DeadReckoningParameters : IDisSerializable {
 		public interface IOtherParameters : IDisSerializable { }

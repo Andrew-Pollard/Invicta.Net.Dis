@@ -1,4 +1,5 @@
 using Invicta.Net.Dis.Pdus.Status;
+using Invicta.Net.SisoRef010;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,28 +11,28 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 
 	[TestClass]
 	public class PduStatusTest {
-		private PduStatus PduStatus = new PduStatus();
+		private PduStatus PduStatus = new();
 
 
 		[TestMethod]
 		public void TransferredEntityIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<TransferredEntityIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusTransferredEntityIndicatorTEI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.TransferredEntityIndicator = Value;
 				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Value);
 
-				//Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				//Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -39,21 +40,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void LVCIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<LVCIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusLVCIndicatorLVC>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.LVCIndicator = Value;
 				Assert.AreEqual(PduStatus.LVCIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -61,21 +62,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void CoupledExtensionIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<CoupledExtensionIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusCoupledExtensionIndicatorCEI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.CoupledExtensionIndicator = Value;
 				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -83,21 +84,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void FireTypeIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<FireTypeIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusFireTypeIndicatorFTI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.FireTypeIndicator = Value;
 				Assert.AreEqual(PduStatus.FireTypeIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -105,21 +106,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void DetonationTypeIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<DetonationTypeIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusDetonationTypeIndicatorDTI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.DetonationTypeIndicator = Value;
 				Assert.AreEqual(PduStatus.DetonationTypeIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -127,21 +128,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void RadioAttachedIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<RadioAttachedIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusRadioAttachedIndicatorRAI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.RadioAttachedIndicator = Value;
 				Assert.AreEqual(PduStatus.RadioAttachedIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -149,21 +150,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void IntercomAttachedIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<IntercomAttachedIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusIntercomAttachedIndicatorIAI>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.IntercomAttachedIndicator = Value;
 				Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -171,21 +172,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void IFFSimulationMode() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<IFFSimulationMode>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusIFFSimulationModeISM>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.IFFSimulationMode = Value;
 				Assert.AreEqual(PduStatus.IFFSimulationMode, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -193,21 +194,21 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		public void ActiveInterrogationIndicator() {
 			/* Reverse so we test 0 last, rather than the posibility of the set not working
 			 * but the assert still passing based on the default value in the bitfield. */
-			var Values = Enum.GetValues<ActiveInterrogationIndicator>().Reverse();
+			var Values = Enum.GetValues<DISPDUStatusActiveInterrogationIndicatorAII>().Reverse();
 
 			foreach (var Value in Values) {
 				PduStatus.ActiveInterrogationIndicator = Value;
 				Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Value);
 
-				Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-				Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-				Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-				Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+				Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+				Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+				Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+				Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+				//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+				//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+				//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+				Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+				//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 			}
 		}
 
@@ -224,187 +225,187 @@ namespace Invicta.Net.Dis.Test.Pdus.Status {
 		[TestMethod]
 		public void EntityState_ElectromagneticEmission_Designator_EnvironmentalProcess_EntityStateUpdateConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.TransferredEntityIndicator.Difference,
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled
+				DISPDUStatusTransferredEntityIndicatorTEI.Difference,
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled
 			);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.Difference);
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.Difference);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
 
-			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void FireConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled,
-				Dis.Pdus.Status.FireTypeIndicator.Expendable
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled,
+				DISPDUStatusFireTypeIndicatorFTI.Expendable
 			);
 
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
-			Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Expendable);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
+			Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Expendable);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void DetonationConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled,
-				Dis.Pdus.Status.DetonationTypeIndicator.NonMunitionExplosion
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled,
+				DISPDUStatusDetonationTypeIndicatorDTI.NonMunitionExplosion
 			);
 
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
-			Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.NonMunitionExplosion);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
+			Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.NonMunitionExplosion);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void Transmitter_Signal_ReceiverConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.TransferredEntityIndicator.Difference,
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled,
-				Dis.Pdus.Status.RadioAttachedIndicator.Attached
+				DISPDUStatusTransferredEntityIndicatorTEI.Difference,
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled,
+				DISPDUStatusRadioAttachedIndicatorRAI.Attached
 			);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.Difference);
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
-			Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.Attached);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.Difference);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
+			Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.Attached);
 
-			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void IFFConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.TransferredEntityIndicator.Difference,
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled,
-				Dis.Pdus.Status.IFFSimulationMode.Interactive,
-				Dis.Pdus.Status.ActiveInterrogationIndicator.Active
+				DISPDUStatusTransferredEntityIndicatorTEI.Difference,
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled,
+				DISPDUStatusIFFSimulationModeISM.Interactive,
+				DISPDUStatusActiveInterrogationIndicatorAII.Active
 			);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.Difference);
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
-			Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Interactive);
-			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.Active);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.Difference);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
+			Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Interactive);
+			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.Active);
 
-			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void IntercomSignal_IntercomControlConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.TransferredEntityIndicator.Difference,
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled,
-				Dis.Pdus.Status.IntercomAttachedIndicator.Attached
+				DISPDUStatusTransferredEntityIndicatorTEI.Difference,
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled,
+				DISPDUStatusIntercomAttachedIndicatorIAI.Attached
 			);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.Difference);
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
-			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.Attached);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.Difference);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
+			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.Attached);
 
-			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			//Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			//Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			//Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			//Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			//Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			//Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			//Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void AttributeConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.LVCIndicator.Constructive
+				DISPDUStatusLVCIndicatorLVC.Constructive
 			);
 
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 		[TestMethod]
 		public void OtherConstructor() {
 			PduStatus = new PduStatus(
-				Dis.Pdus.Status.LVCIndicator.Constructive,
-				Dis.Pdus.Status.CoupledExtensionIndicator.Coupled
+				DISPDUStatusLVCIndicatorLVC.Constructive,
+				DISPDUStatusCoupledExtensionIndicatorCEI.Coupled
 			);
 
-			Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.Constructive);
-			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.Coupled);
+			Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.Constructive);
+			Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.Coupled);
 
-			Assert.AreEqual(PduStatus.TransferredEntityIndicator, Dis.Pdus.Status.TransferredEntityIndicator.NoDifference);
-			//Assert.AreEqual(PduStatus.LVCIndicator, Dis.Pdus.Status.LVCIndicator.NoStatement);
-			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, Dis.Pdus.Status.CoupledExtensionIndicator.NotCoupled);
-			Assert.AreEqual(PduStatus.FireTypeIndicator, Dis.Pdus.Status.FireTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.DetonationTypeIndicator, Dis.Pdus.Status.DetonationTypeIndicator.Munition);
-			Assert.AreEqual(PduStatus.RadioAttachedIndicator, Dis.Pdus.Status.RadioAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, Dis.Pdus.Status.IntercomAttachedIndicator.NoStatement);
-			Assert.AreEqual(PduStatus.IFFSimulationMode, Dis.Pdus.Status.IFFSimulationMode.Regeneration);
-			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, Dis.Pdus.Status.ActiveInterrogationIndicator.NotActive);
+			Assert.AreEqual(PduStatus.TransferredEntityIndicator, DISPDUStatusTransferredEntityIndicatorTEI.NoDifference);
+			//Assert.AreEqual(PduStatus.LVCIndicator, DISPDUStatusLVCIndicatorLVC.NoStatement);
+			//Assert.AreEqual(PduStatus.CoupledExtensionIndicator, DISPDUStatusCoupledExtensionIndicatorCEI.NotCoupled);
+			Assert.AreEqual(PduStatus.FireTypeIndicator, DISPDUStatusFireTypeIndicatorFTI.Munition);
+			Assert.AreEqual(PduStatus.DetonationTypeIndicator, DISPDUStatusDetonationTypeIndicatorDTI.Munition);
+			Assert.AreEqual(PduStatus.RadioAttachedIndicator, DISPDUStatusRadioAttachedIndicatorRAI.NoStatement);
+			Assert.AreEqual(PduStatus.IntercomAttachedIndicator, DISPDUStatusIntercomAttachedIndicatorIAI.NoStatement);
+			Assert.AreEqual(PduStatus.IFFSimulationMode, DISPDUStatusIFFSimulationModeISM.Regeneration);
+			Assert.AreEqual(PduStatus.ActiveInterrogationIndicator, DISPDUStatusActiveInterrogationIndicatorAII.NotActive);
 		}
 
 

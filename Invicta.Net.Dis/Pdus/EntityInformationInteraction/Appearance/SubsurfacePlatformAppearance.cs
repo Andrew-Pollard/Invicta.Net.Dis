@@ -1,6 +1,6 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -8,8 +8,8 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class SubsurfacePlatformAppearance : IEntityAppearance {
-		public PaintScheme PaintScheme {
-			get => (PaintScheme) Bits[0..1];
+		public AppearancePaintScheme PaintScheme {
+			get => (AppearancePaintScheme) Bits[0..1];
 			set => Bits[0..1] = (uint) value;
 		} // 378
 
@@ -18,8 +18,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[1] = value;
 		}
 
-		public Damage Damage {
-			get => (Damage) Bits[3..5];
+		public AppearanceDamage Damage {
+			get => (AppearanceDamage) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 379
 
@@ -33,8 +33,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[6] = value;
 		}
 
-		public Hatch Hatch {
-			get => (Hatch) Bits[9..12];
+		public AppearanceHatch Hatch {
+			get => (AppearanceHatch) Bits[9..12];
 			set => Bits[9..12] = (uint) value;
 		} // 382
 
@@ -58,8 +58,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 

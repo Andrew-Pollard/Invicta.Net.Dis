@@ -1,6 +1,6 @@
 ﻿using Invicta.Net.Dis.Pdus.Status;
+using Invicta.Net.SisoRef010;
 
-using System;
 using System.Buffers.Binary;
 
 
@@ -10,10 +10,10 @@ namespace Invicta.Net.Dis.Pdus {
 		public const int Size = 12;
 
 
-		public ProtocolVersion ProtocolVersion { get; private set; }
+		public DISProtocolVersion ProtocolVersion { get; private set; }
 		public byte ExerciseIdentifier { get; private set; }
-		public PduType PduType { get; private set; }
-		public ProtocolFamily ProtocolFamily { get; private set; }
+		public DISPDUType PduType { get; private set; }
+		public DISProtocolFamily ProtocolFamily { get; private set; }
 		public uint Timestamp { get; private set; }
 		public ushort Length { get; private set; }
 		public PduStatus PduStatus { get; private set; }
@@ -23,10 +23,10 @@ namespace Invicta.Net.Dis.Pdus {
 		public PduHeader() { }
 
 		public PduHeader(
-			ProtocolVersion protocolVersion,
+			DISProtocolVersion protocolVersion,
 			byte exerciseIdentifier,
-			PduType pduType,
-			ProtocolFamily protocolFamily,
+			DISPDUType pduType,
+			DISProtocolFamily protocolFamily,
 			byte timestamp,
 			byte length,
 			PduStatus pduStatus
@@ -41,10 +41,10 @@ namespace Invicta.Net.Dis.Pdus {
 		}
 
 		protected PduHeader(
-			ProtocolVersion protocolVersion,
+			DISProtocolVersion protocolVersion,
 			byte exerciseIdentifier,
-			PduType pduType,
-			ProtocolFamily protocolFamily,
+			DISPDUType pduType,
+			DISProtocolFamily protocolFamily,
 			byte timestamp,
 			byte length,
 			PduStatus pduStatus,
@@ -80,10 +80,10 @@ namespace Invicta.Net.Dis.Pdus {
 			if (bytes.Length != Size)
 				throw new ArgumentException(nameof(bytes));
 
-			ProtocolVersion = (ProtocolVersion) bytes[0];
+			ProtocolVersion = (DISProtocolVersion) bytes[0];
 			ExerciseIdentifier = bytes[1];
-			PduType = (PduType) bytes[2];
-			ProtocolFamily = (ProtocolFamily) bytes[3];
+			PduType = (DISPDUType) bytes[2];
+			ProtocolFamily = (DISProtocolFamily) bytes[3];
 			Timestamp = BinaryPrimitives.ReadUInt32BigEndian(bytes[4..8]);
 			Length = BinaryPrimitives.ReadUInt16BigEndian(bytes[8..10]);
 			PduStatus.DisDeserialize(bytes[10..11]);

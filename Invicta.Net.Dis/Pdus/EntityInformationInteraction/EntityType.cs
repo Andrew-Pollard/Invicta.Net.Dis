@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Invicta.Net.SisoRef010;
+
 using System.Buffers.Binary;
 
 
@@ -10,7 +11,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 
 		public EntityKind EntityKind { get; private set; }
 		public byte Domain { get; private set; }
-		public ushort Country { get; private set; }
+		public Country Country { get; private set; }
 		public byte Category { get; private set; }
 		public byte Subcategory { get; private set; }
 		public byte Specific { get; private set; }
@@ -23,7 +24,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 
 			bytes[0] = (byte) EntityKind;
 			bytes[1] = Domain;
-			BinaryPrimitives.WriteUInt16BigEndian(bytes[2..4], Country);
+			BinaryPrimitives.WriteUInt16BigEndian(bytes[2..4], (ushort) Country);
 			bytes[4] = Category;
 			bytes[5] = Subcategory;
 			bytes[6] = Specific;
@@ -37,7 +38,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 
 			EntityKind = (EntityKind) bytes[0];
 			Domain = bytes[1];
-			Country = BinaryPrimitives.ReadUInt16BigEndian(bytes[2..4]);
+			Country = (Country) BinaryPrimitives.ReadUInt16BigEndian(bytes[2..4]);
 			Category = bytes[4];
 			Subcategory = bytes[5];
 			Specific = bytes[6];

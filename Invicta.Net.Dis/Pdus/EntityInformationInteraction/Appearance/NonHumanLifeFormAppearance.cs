@@ -1,6 +1,6 @@
 ﻿using Invicta.Collections.Specialized;
+using Invicta.Net.SisoRef010;
 
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -8,8 +8,8 @@ using System.Text;
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 
 	public class NonHumanLifeFormAppearance : IEntityAppearance {
-		public LifeFormHealth Health {
-			get => (LifeFormHealth) Bits[3..5];
+		public AppearanceLifeformHealth Health {
+			get => (AppearanceLifeformHealth) Bits[3..5];
 			set => Bits[3..5] = (uint) value;
 		} // 390
 
@@ -23,8 +23,8 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction.Appearance {
 			set => Bits[22] = value;
 		}
 
-		public EntityOrObjectState State {
-			get => (EntityOrObjectState) Bits[23..24];
+		public AppearanceEntityOrObjectState State {
+			get => (AppearanceEntityOrObjectState) Bits[23..24];
 			set => Bits[23..24] = (uint) value;
 		} // 386
 

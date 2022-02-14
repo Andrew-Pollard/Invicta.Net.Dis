@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Invicta.Net.SisoRef010;
 
 
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
@@ -7,7 +7,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 		public const int Size = 12;
 
 
-		public CharacterSet CharacterSet { get; private set; }
+		public EntityMarkingCharacterSet CharacterSet { get; private set; }
 
 		public byte FirstCharacter { get; private set; }
 		public byte SecondCharacter { get; private set; }
@@ -46,7 +46,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 			if (bytes.Length != Size)
 				throw new ArgumentException(nameof(bytes));
 
-			CharacterSet = (CharacterSet) bytes[0];
+			CharacterSet = (EntityMarkingCharacterSet) bytes[0];
 
 			FirstCharacter = bytes[1];
 			SecondCharacter = bytes[2];

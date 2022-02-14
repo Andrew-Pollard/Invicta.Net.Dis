@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Invicta.Net.SisoRef010;
+
 using System.Buffers.Binary;
-using System.Collections.Generic;
 
 
 namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
@@ -8,7 +8,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 	public class EntityStatePdu : IDisSerializable {
 		public PduHeader PduHeader { get; }
 		public EntityIdentifier EntityId { get; }
-		public ForceId ForceId { get; private set; }
+		public ForceID ForceId { get; private set; }
 		public byte NumberOfVariableParameterRecords { get; private set; }
 		public EntityType EntityType { get; }
 		public EntityType AlternateEntityType { get; }
@@ -25,7 +25,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 		public EntityStatePdu() {
 			PduHeader = new();
 			EntityId = new();
-			ForceId = ForceId.Other;
+			ForceId = ForceID.Other;
 			NumberOfVariableParameterRecords = 0;
 			EntityType = new();
 			AlternateEntityType = new();
@@ -43,7 +43,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 		public EntityStatePdu(
 			PduHeader pduHeader,
 			EntityIdentifier entityId,
-			ForceId forceId,
+			ForceID forceId,
 			byte numberOfVariableParameterRecords,
 			EntityType entityType,
 			EntityType alternateEntityType,
@@ -102,7 +102,7 @@ namespace Invicta.Net.Dis.Pdus.EntityInformationInteraction {
 		public void DisDeserialize(ReadOnlySpan<byte> bytes) {
 			PduHeader.DisDeserialize(bytes[0..12]);
 			PduHeader.DisDeserialize(bytes[12..18]);
-			ForceId = (ForceId) bytes[19];
+			ForceId = (ForceID) bytes[19];
 
 			NumberOfVariableParameterRecords = bytes[20];
 

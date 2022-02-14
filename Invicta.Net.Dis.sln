@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Net.Dis.Scratch", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Collections.Specialized", "Invicta.Collections.Specialized\Invicta.Collections.Specialized\Invicta.Collections.Specialized.csproj", "{75A463B4-2C69-4705-8BB4-9FD630C6A306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invicta.Net.Dis.Test", "Invicta.Net.Dis.Test\Invicta.Net.Dis.Test.csproj", "{9C595147-134B-4EBF-A661-4DE7BF628480}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Net.Dis.Test", "Invicta.Net.Dis.Test\Invicta.Net.Dis.Test.csproj", "{9C595147-134B-4EBF-A661-4DE7BF628480}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invicta.Net.SisoRef010", "..\Invicta.Net.SisoRef010\Invicta.Net.SisoRef010\Invicta.Net.SisoRef010.csproj", "{622AD60F-D6BC-4C69-8B94-BE861C7842EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9C595147-134B-4EBF-A661-4DE7BF628480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C595147-134B-4EBF-A661-4DE7BF628480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C595147-134B-4EBF-A661-4DE7BF628480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622AD60F-D6BC-4C69-8B94-BE861C7842EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622AD60F-D6BC-4C69-8B94-BE861C7842EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622AD60F-D6BC-4C69-8B94-BE861C7842EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622AD60F-D6BC-4C69-8B94-BE861C7842EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
